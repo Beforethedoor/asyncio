@@ -7,7 +7,6 @@ async def coro():
 
 async def main():
     task = asyncio.create_task(coro())
-
     await task
     print(task.cancelled())
 
