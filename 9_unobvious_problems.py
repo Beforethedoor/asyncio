@@ -8,23 +8,23 @@ async def busy_loop():
 
 async def nothing():
     await asyncio.sleep(0)
-    print('busy')
+    print("busy")
 
 
 async def normal():
     for i in range(10):
         await asyncio.sleep(0)
-        print('normal coroutine')
+        print("normal coroutine")
 
 
 async def main():
 
-    await asyncio.create_task(busy_loop())
-    await asyncio.create_task(normal())
+    # await asyncio.create_task(busy_loop())
+    # await asyncio.create_task(normal())
 
-    # await asyncio.gather(
-    #     busy_loop(),
-    #     normal()
-    # )
+    await asyncio.gather(
+        busy_loop(),
+        normal()
+    )
 
 asyncio.run(main())
